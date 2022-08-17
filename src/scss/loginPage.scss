@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(145,242,225), rgb(43,149,163));
+    height: 100vh;
+    width: 100vw;
+};
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+};
+
+.loginWrapper {
+    background: white;
+    border-radius: 25px;
+    width: 700px;
+    height: 400px;
+};
+
+.login {
+    display: flex;
+    flex-direction: column;
+};
+
+.pokeLogo {
+    height: 25%;
+    width: 25%;
+    margin-bottom: 25px;
+};
