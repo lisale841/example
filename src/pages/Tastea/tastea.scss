@@ -1,0 +1,38 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+    margin-left: 400px;
+    margin-right: 400px;
+    height: 100vh;
+}
+
+.slider {
+    border: 5px solid grey;
+    height: 300px;
+    width: 800px;
+}
+
+.linksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 5px solid green;
+    height: 300px;
+    width: 800px;
+}
+
+.linksBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // border: 5px solid purple;
+}
+
+.links {
+    border: 5px solid blue;
+    height: 100px;
+    width: 100px;
+}
