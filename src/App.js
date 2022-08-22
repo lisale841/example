@@ -6,11 +6,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const [token, setToken] = useState();
 
+  if (!token) {
+    return <Login setToken={setToken} />;
+  }
+
   return (
     <BrowserRouter>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Login setToken={setToken} />} />
-      </Routes>
+      </Routes> */}
       <Routes>
         <Route path="/home" element={<Home />} />
       </Routes>
