@@ -1,7 +1,21 @@
-import Login from "./loginPage/Login";
+import React, { useState } from "react";
+import Login from "./pages/Login/Login";
+import Home from "./pages/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  return <Login />;
+  const [token, setToken] = useState();
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login setToken={setToken} />} />
+      </Routes>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

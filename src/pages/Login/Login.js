@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-import loginPage from "../scss/loginPage.scss";
-import pokeLogo from "../images/pokeLogo.png";
+import loginPage from "../../scss/loginPage.scss";
+import pokeLogo from "../../images/pokeLogo.png";
+import PropTypes from "prop-types";
 
-function LoginPage() {
+function LoginPage({ setToken }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const loginUser = async (loginInfo) => {
+    return await fetch("http://localhost:8080/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginInfo),
+    }).then((data) => data.json());
+  };
+
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
-    // console.log(userName, "username change");
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    // console.log(password, "password change");
   };
 
   const handleSubmit = (event) => {
@@ -32,6 +41,7 @@ function LoginPage() {
               <label className="login">
                 User Name:
                 <input
+                  id="12345"
                   type="text"
                   className="login"
                   placeholder="username"
@@ -59,3 +69,7 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+LoginPage.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
