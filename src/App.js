@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Tastea from "./pages/Tastea/Tastea";
+import OmniHorse from "./pages/OmniHorse/OmniHorse";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/tastea" element={<Tastea />} />
+      </Routes>
+       <Routes>
+        <Route path="/omnihorse" element={<OmniHorse />} />
       </Routes>
     </BrowserRouter>
   );
