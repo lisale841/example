@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import loginPage from "../../scss/loginPage.scss";
 import pokeLogo from "../../images/pokeLogo.png";
 import PropTypes from "prop-types";
@@ -6,7 +7,6 @@ import PropTypes from "prop-types";
 function LoginPage({ setToken }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [tokenValue, setTokenValue] = useState();
 
   const loginUser = async (loginInfo) => {
     return await fetch("http://localhost:8080/login", {
@@ -17,7 +17,6 @@ function LoginPage({ setToken }) {
       body: JSON.stringify(loginInfo),
     })
       .then((data) => data.json())
-      .then((res) => setTokenValue(res))
       .catch((err) => console.log(err));
   };
 
@@ -31,15 +30,10 @@ function LoginPage({ setToken }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const token = loginUser({
-    //   userName,
-    //   password,
-    // });
     loginUser({
       userName,
       password,
-    });
-    setToken(tokenValue);
+    }).then((res) => setToken(res));
   };
 
   return (
