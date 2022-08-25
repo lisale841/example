@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 function LoginPage({ setToken }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [tokenValue, setTokenValue] = useState();
 
   const loginUser = async (loginInfo) => {
     return await fetch("http://localhost:8080/login", {
@@ -14,7 +15,10 @@ function LoginPage({ setToken }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(loginInfo),
-    }).then((data) => data.json());
+    })
+      .then((data) => data.json())
+      .then((res) => setTokenValue(res))
+      .catch((err) => console.log(err));
   };
 
   const handleUserNameChange = (event) => {
@@ -27,8 +31,15 @@ function LoginPage({ setToken }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userName, "userName submitted");
-    console.log(password, "password submitted");
+    // const token = loginUser({
+    //   userName,
+    //   password,
+    // });
+    loginUser({
+      userName,
+      password,
+    });
+    setToken(tokenValue);
   };
 
   return (
