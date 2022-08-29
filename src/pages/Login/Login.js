@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import loginPage from "../../scss/loginPage.scss";
+import loginPage from "../../scss/loginPage.module.scss";
 import pokeLogo from "../../images/pokeLogo.png";
 import PropTypes from "prop-types";
 
@@ -37,28 +37,28 @@ function LoginPage({ setToken }) {
   };
 
   return (
-    <div className="wrapper">
-      <div className="mainContainer">
-        <img className="pokeLogo" src={pokeLogo} alt="pokeLogo" />
-        <div className="loginWrapper">
-          <div className="loginContainer">
+    <div className={loginPage.wrapper}>
+      <div className={loginPage.mainContainer}>
+        <img className={loginPage.pokeLogo} src={pokeLogo} alt="pokeLogo" />
+        <div className={loginPage.loginWrapper}>
+          <div className={loginPage.loginContainer}>
             <form onSubmit={handleSubmit}>
-              <label className="login">
+              <label className={loginPage.login}>
                 User Name:
                 <input
                   id="12345"
                   type="text"
-                  className="login"
+                  className={loginPage.login}
                   placeholder="username"
                   value={userName}
                   onChange={handleUserNameChange}
                 />
               </label>
-              <label className="login">
+              <label className={loginPage.login}>
                 Password:
                 <input
                   type="text"
-                  className="login"
+                  className={loginPage.login}
                   placeholder="password"
                   value={password}
                   onChange={handlePasswordChange}
