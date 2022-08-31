@@ -8,26 +8,35 @@
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 5vh;
-    background: teal
+    height: 10vh;
+    background: linear-gradient(rgb(43,149,163), rgb(145,242,225));
 }
 
 .logo {
     display: flex;
-
+    height: 75%;
+    width: 75%;
+    margin-left: 20px;
 }
 
 .tabContainer {
     display: flex;
     flex-direction: row;
+    width: 500px;
 }
 
 .tabs {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .font {
     color: white;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 

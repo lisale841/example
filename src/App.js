@@ -20,23 +20,18 @@ const getToken = () => {
 function App() {
   const { token, setToken } = useToken();
 
-  // if (!token) {
-  //   return <Login setToken={setToken} />;
+  // if (token) {
+  //   return <NavBar setToken={setToken} />;
   // }
 
   return (
     <BrowserRouter>
-      {token ? (
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Login setToken={setToken} />} />
-        </Routes>
-      )}
+      {token && <NavBar />}
       <Routes>
-        <Route path="/navbar" element={<NavBar />} />
+        <Route path="/" element={<Login setToken={setToken} />} />
+      </Routes>
+      <Routes>
+        <Route path="/home" element={<Home />} />
       </Routes>
       <Routes>
         <Route path="/tastea" element={<Tastea />} />

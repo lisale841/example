@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import loginPage from "../../scss/loginPage.module.scss";
 import pokeLogo from "../../images/pokeLogo.png";
 import PropTypes from "prop-types";
@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 function LoginPage({ setToken }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+  let navigate = useNavigate();
 
   const loginUser = async (loginInfo) => {
     return await fetch("http://localhost:8080/login", {
@@ -30,10 +32,13 @@ function LoginPage({ setToken }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUser({
-      userName,
-      password,
-    }).then((res) => setToken(res));
+    if (userName && password) {
+      loginUser({
+        userName,
+        password,
+      }).then((res) => setToken(res));
+      navigate("/home");
+    }
   };
 
   return (

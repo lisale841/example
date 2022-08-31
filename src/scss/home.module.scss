@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(145,242,225), rgb(43,149,163));
+    height: 100vh;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectionsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 750px;
+    margin-bottom: 50px;
+}
+
+.selections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1)
+    }
+}
