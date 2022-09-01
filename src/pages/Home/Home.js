@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import style from "../../scss/home.module.scss";
 
 const Home = () => {
+  const [pokemon, setPokemon] = useState();
   const handlePokeDex = () => {
     console.log("clicked");
   };
@@ -19,7 +21,12 @@ const Home = () => {
   };
 
   const handleCatch = () => {
-    console.log("clicked");
+    const min = 1;
+    const max = 905;
+    const wildPokemon = Math.floor(Math.random() * (max - min + 1) + min);
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${wildPokemon}/`)
+      .then((res) => setPokemon(res.data));
   };
 
   return (
